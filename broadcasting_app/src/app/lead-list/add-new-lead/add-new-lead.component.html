@@ -1,0 +1,34 @@
+<div class="container">
+  <form action="" [formGroup]="addLeadForm">
+    <div class="row" style="height: 40px">
+      <div class="col">
+        <h3 style="color: white" class="mt-2">ADD NEW LEAD</h3>
+      </div>
+      <div class="col text-end">
+        <button class="btn btn-sm mt-1" mat-button mat-dialog-close>X</button>
+      </div>
+    </div>
+    <div>
+      <label for="">Lead Name</label>
+      <input type="text" class="form-control" placeholder="Enter a name for the list" formControlName="leadName" />
+    </div>
+
+    <div class="mt-2">
+      <label for="">Message To Broadcast</label>
+      <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="SMS text message" formControlName="message"></textarea>
+    </div>
+
+    <div class="mt-2">
+      <label for="">Upload</label>
+      <input type="file" class="form-control" (change)="readExcel($event)" />
+    </div>
+
+    <div class="text-end mt-3">
+      <button class="btn" (click)="addLead()">Import</button>
+    </div>
+
+</form>
+
+
+
+<div>

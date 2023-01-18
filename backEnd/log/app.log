@@ -1,0 +1,464 @@
+
+[2023-01-17T11:39:53.675] [DEBUG] startup - this is a test
+[2023-01-17T11:47:47.685] [DEBUG] startup - db is connected
+[2023-01-17T11:48:17.683] [DEBUG] startup - db is connected
+[2023-01-17T11:48:24.823] [DEBUG] startup - db is connected
+[2023-01-17T11:48:26.126] [DEBUG] startup - db is connected
+[2023-01-17T11:48:28.720] [DEBUG] startup - db is connected
+[2023-01-17T11:48:32.652] [DEBUG] startup - db is connected
+[2023-01-17T11:48:33.967] [DEBUG] startup - db is connected
+[2023-01-17T11:48:36.340] [DEBUG] startup - db is connected
+[2023-01-17T11:48:56.212] [DEBUG] startup - db is connected
+[2023-01-17T11:50:14.722] [DEBUG] startup - db is connected
+[2023-01-17T11:52:13.270] [DEBUG] startup - db is connected
+[2023-01-17T11:52:46.334] [DEBUG] startup - db is connected
+[2023-01-17T11:53:57.229] [DEBUG] startup - db is connected
+[2023-01-17T11:54:09.025] [DEBUG] startup - db is connected
+[2023-01-17T11:54:21.801] [DEBUG] startup - db is connected
+[2023-01-17T11:54:31.222] [DEBUG] startup - db is connected
+[2023-01-17T11:54:35.368] [DEBUG] startup - db is connected
+[2023-01-17T11:54:42.643] [DEBUG] startup - db is connected
+[2023-01-17T11:54:45.353] [DEBUG] startup - db is connected
+[2023-01-17T11:54:50.521] [DEBUG] startup - db is connected
+[2023-01-17T11:54:52.160] [DEBUG] startup - db is connected
+[2023-01-17T11:54:58.558] [DEBUG] startup - db is connected
+[2023-01-17T11:56:18.394] [DEBUG] startup - db is connected
+[2023-01-17T11:57:15.033] [DEBUG] startup - db is connected
+[2023-01-17T11:57:20.457] [DEBUG] startup - db is connected
+[2023-01-17T11:57:25.391] [DEBUG] startup - db is connected
+[2023-01-17T11:57:35.261] [DEBUG] startup - db is connected
+[2023-01-17T11:57:54.988] [DEBUG] startup - this is a test
+[2023-01-17T11:58:17.742] [DEBUG] startup - db is connected
+[2023-01-17T11:58:19.224] [DEBUG] startup - db is connected
+[2023-01-17T11:58:20.948] [DEBUG] startup - db is connected
+[2023-01-17T11:58:23.784] [DEBUG] startup - db is connected
+[2023-01-17T11:58:30.531] [DEBUG] startup - db is connected
+[2023-01-17T11:59:00.391] [DEBUG] startup - db is connected
+[2023-01-17T11:59:16.626] [DEBUG] startup - db is connected
+[2023-01-17T11:59:19.759] [INFO] startup - { test: 'test value' }
+[2023-01-17T11:59:20.799] [INFO] startup - { test: 'test value' }
+[2023-01-17T11:59:21.369] [INFO] startup - { test: 'test value' }
+[2023-01-17T11:59:21.734] [INFO] startup - { test: 'test value' }
+[2023-01-17T11:59:21.954] [INFO] startup - { test: 'test value' }
+[2023-01-17T11:59:22.171] [INFO] startup - { test: 'test value' }
+[2023-01-17T12:00:48.214] [DEBUG] startup - db is connected
+[2023-01-17T12:00:54.612] [DEBUG] startup - db is connected
+[2023-01-17T12:01:08.295] [INFO] startup - Reply { test: 'test value' }
+[2023-01-17T12:01:08.299] [DEBUG] startup - this is a test
+[2023-01-17T12:01:09.270] [INFO] startup - Reply { test: 'test value' }
+[2023-01-17T12:01:09.271] [DEBUG] startup - this is a test
+[2023-01-17T12:01:30.541] [DEBUG] startup - db is connected
+[2023-01-17T12:01:32.514] [DEBUG] startup - db is connected
+[2023-01-17T12:18:43.199] [INFO] startup - Reply { test: 'test value' }
+[2023-01-17T12:20:47.838] [INFO] startup - Reply { test: 'test value' }
+[2023-01-17T12:50:16.135] [DEBUG] startup - db is connected
+[2023-01-17T12:50:54.036] [INFO] startup - Reply { test: 'test value' }
+[2023-01-17T12:51:02.683] [DEBUG] startup - db is connected
+[2023-01-17T12:57:59.102] [DEBUG] startup - db is connected
+[2023-01-17T12:58:02.920] [DEBUG] startup - db is connected
+[2023-01-17T12:58:06.373] [DEBUG] startup - db is connected
+[2023-01-17T12:58:10.742] [DEBUG] startup - db is connected
+[2023-01-17T13:02:08.505] [DEBUG] startup - db is connected
+[2023-01-17T16:07:24.147] [DEBUG] startup - db is connected
+[2023-01-17T16:07:25.150] [DEBUG] startup - db is connected
+[2023-01-18T08:47:47.668] [DEBUG] startup - db is connected
+[2023-01-18T09:02:17.174] [DEBUG] startup - db connection failed Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'192.168.2.191' (using password: YES)
+    at Handshake.Sequence._packetToError (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Handshake.ErrorPacket (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+    at Protocol._parsePacket (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\work\broadcast\backEnd\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\work\broadcast\backEnd\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+    --------------------
+    at Protocol._enqueue (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (D:\work\broadcast\backEnd\node_modules\mysql\lib\Connection.js:116:18)
+    at Object.<anonymous> (D:\work\broadcast\backEnd\index.js:60:12)
+    at Module._compile (node:internal/modules/cjs/loader:1155:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1209:10)
+    at Module.load (node:internal/modules/cjs/loader:1033:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:868:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:22:47 {
+  code: 'ER_ACCESS_DENIED_ERROR',
+  errno: 1045,
+  sqlMessage: "Access denied for user 'root'@'192.168.2.191' (using password: YES)",
+  sqlState: '28000',
+  fatal: true
+}
+[2023-01-18T09:02:27.777] [DEBUG] startup - db connection failed Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'devuser'@'192.168.2.191' (using password: YES)
+    at Handshake.Sequence._packetToError (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Handshake.ErrorPacket (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+    at Protocol._parsePacket (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\work\broadcast\backEnd\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\work\broadcast\backEnd\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+    --------------------
+    at Protocol._enqueue (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (D:\work\broadcast\backEnd\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (D:\work\broadcast\backEnd\node_modules\mysql\lib\Connection.js:116:18)
+    at Object.<anonymous> (D:\work\broadcast\backEnd\index.js:60:12)
+    at Module._compile (node:internal/modules/cjs/loader:1155:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1209:10)
+    at Module.load (node:internal/modules/cjs/loader:1033:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:868:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:22:47 {
+  code: 'ER_ACCESS_DENIED_ERROR',
+  errno: 1045,
+  sqlMessage: "Access denied for user 'devuser'@'192.168.2.191' (using password: YES)",
+  sqlState: '28000',
+  fatal: true
+}
+[2023-01-18T09:02:36.818] [DEBUG] startup - db is connected
+[2023-01-18T09:02:41.766] [DEBUG] startup - db is connected
+[2023-01-18T09:02:45.215] [DEBUG] startup - db is connected
+[2023-01-18T09:03:39.172] [DEBUG] startup - db is connected
+[2023-01-18T09:03:45.620] [DEBUG] startup - db is connected
+[2023-01-18T09:03:51.853] [DEBUG] startup - db is connected
+[2023-01-18T09:10:01.769] [DEBUG] startup - db is connected
+[2023-01-18T09:13:06.004] [DEBUG] startup - db is connected
+[2023-01-18T09:13:12.767] [DEBUG] startup - db is connected
+[2023-01-18T09:21:26.196] [DEBUG] startup - db is connected
+[2023-01-18T09:21:28.674] [DEBUG] startup - db is connected
+[2023-01-18T09:21:57.698] [DEBUG] startup - db is connected
+[2023-01-18T09:22:03.651] [DEBUG] startup - db is connected
+[2023-01-18T09:22:12.132] [DEBUG] startup - db is connected
+[2023-01-18T09:22:14.576] [DEBUG] startup - db is connected
+[2023-01-18T09:22:16.751] [DEBUG] startup - db is connected
+[2023-01-18T09:22:50.370] [DEBUG] startup - db is connected
+[2023-01-18T09:22:51.463] [DEBUG] startup - db is connected
+[2023-01-18T09:22:53.795] [DEBUG] startup - db is connected
+[2023-01-18T09:22:57.262] [DEBUG] startup - db is connected
+[2023-01-18T09:22:58.367] [DEBUG] startup - db is connected
+[2023-01-18T09:23:24.362] [DEBUG] startup - db is connected
+[2023-01-18T09:29:55.680] [DEBUG] startup - db is connected
+[2023-01-18T09:30:08.832] [DEBUG] startup - db is connected
+[2023-01-18T09:30:39.373] [DEBUG] startup - db is connected
+[2023-01-18T09:32:31.233] [DEBUG] startup - db is connected
+[2023-01-18T09:32:36.653] [DEBUG] startup - db is connected
+[2023-01-18T09:32:48.041] [DEBUG] startup - db is connected
+[2023-01-18T09:32:49.608] [DEBUG] startup - db is connected
+[2023-01-18T09:32:55.229] [DEBUG] startup - db is connected
+[2023-01-18T09:32:59.226] [DEBUG] startup - db is connected
+[2023-01-18T09:38:57.700] [DEBUG] startup - db is connected
+[2023-01-18T09:39:03.069] [DEBUG] startup - db is connected
+[2023-01-18T09:39:04.297] [DEBUG] startup - db is connected
+[2023-01-18T09:48:58.727] [DEBUG] startup - db is connected
+[2023-01-18T09:51:54.913] [DEBUG] startup - db is connected
+[2023-01-18T09:51:57.041] [DEBUG] startup - db is connected
+[2023-01-18T09:57:08.770] [DEBUG] startup - db is connected
+[2023-01-18T09:57:09.610] [DEBUG] startup - db is connected
+[2023-01-18T10:14:09.691] [DEBUG] startup - db is connected
+[2023-01-18T10:24:53.115] [DEBUG] startup - db is connected
+[2023-01-18T10:25:10.732] [DEBUG] startup - db is connected
+[2023-01-18T10:40:26.954] [DEBUG] startup - db is connected
+[2023-01-18T10:45:06.528] [DEBUG] startup - db is connected
+[2023-01-18T10:45:19.267] [DEBUG] startup - db is connected
+[2023-01-18T10:45:36.945] [DEBUG] startup - db is connected
+[2023-01-18T10:45:47.164] [DEBUG] startup - db is connected
+[2023-01-18T10:45:50.482] [DEBUG] startup - db is connected
+[2023-01-18T10:45:52.012] [DEBUG] startup - db is connected
+[2023-01-18T10:45:54.238] [DEBUG] startup - db is connected
+[2023-01-18T10:45:56.742] [DEBUG] startup - db is connected
+[2023-01-18T10:45:59.274] [DEBUG] startup - db is connected
+[2023-01-18T10:46:05.050] [DEBUG] startup - db is connected
+[2023-01-18T10:46:38.538] [DEBUG] startup - db is connected
+[2023-01-18T10:46:43.952] [DEBUG] startup - db is connected
+[2023-01-18T10:46:49.681] [DEBUG] startup - db is connected
+[2023-01-18T10:47:21.361] [DEBUG] startup - db is connected
+[2023-01-18T10:47:30.307] [DEBUG] startup - db is connected
+[2023-01-18T10:47:33.868] [DEBUG] startup - db is connected
+[2023-01-18T10:47:36.150] [DEBUG] startup - db is connected
+[2023-01-18T10:47:37.178] [DEBUG] startup - db is connected
+[2023-01-18T10:47:40.151] [DEBUG] startup - db is connected
+[2023-01-18T10:47:41.489] [DEBUG] startup - db is connected
+[2023-01-18T10:47:43.635] [DEBUG] startup - db is connected
+[2023-01-18T10:47:45.372] [DEBUG] startup - db is connected
+[2023-01-18T10:47:46.858] [DEBUG] startup - db is connected
+[2023-01-18T10:48:12.421] [DEBUG] startup - db is connected
+[2023-01-18T10:48:14.999] [DEBUG] startup - db is connected
+[2023-01-18T10:48:25.593] [DEBUG] startup - db is connected
+[2023-01-18T10:49:00.983] [DEBUG] startup - db is connected
+[2023-01-18T10:49:11.259] [DEBUG] startup - db is connected
+[2023-01-18T10:49:26.720] [DEBUG] startup - db is connected
+[2023-01-18T10:49:28.314] [DEBUG] startup - db is connected
+[2023-01-18T10:49:34.379] [DEBUG] startup - db is connected
+[2023-01-18T10:49:39.236] [DEBUG] startup - db is connected
+[2023-01-18T10:49:58.994] [DEBUG] startup - db is connected
+[2023-01-18T10:50:03.746] [DEBUG] startup - db is connected
+[2023-01-18T10:50:07.468] [DEBUG] startup - db is connected
+[2023-01-18T10:50:08.586] [DEBUG] startup - db is connected
+[2023-01-18T10:50:18.876] [DEBUG] startup - db is connected
+[2023-01-18T10:50:21.010] [DEBUG] startup - db is connected
+[2023-01-18T10:50:55.866] [DEBUG] startup - db is connected
+[2023-01-18T10:53:04.984] [DEBUG] startup - db is connected
+[2023-01-18T10:53:15.109] [DEBUG] startup - db is connected
+[2023-01-18T10:53:27.442] [DEBUG] startup - db is connected
+[2023-01-18T10:55:01.999] [DEBUG] startup - db is connected
+[2023-01-18T10:55:57.278] [DEBUG] startup - db is connected
+[2023-01-18T10:57:06.946] [DEBUG] startup - db is connected
+[2023-01-18T10:57:08.252] [DEBUG] startup - db is connected
+[2023-01-18T10:57:38.691] [DEBUG] startup - db is connected
+[2023-01-18T10:57:46.560] [DEBUG] startup - db is connected
+[2023-01-18T10:57:48.195] [DEBUG] startup - db is connected
+[2023-01-18T10:58:21.101] [DEBUG] startup - db is connected
+[2023-01-18T10:58:24.354] [DEBUG] startup - db is connected
+[2023-01-18T11:07:08.327] [DEBUG] startup - db is connected
+[2023-01-18T11:08:19.370] [DEBUG] startup - db is connected
+[2023-01-18T11:11:59.651] [DEBUG] startup - db is connected
+[2023-01-18T11:12:08.474] [DEBUG] startup - db is connected
+[2023-01-18T11:12:09.821] [DEBUG] startup - db is connected
+[2023-01-18T11:12:12.819] [DEBUG] startup - db is connected
+[2023-01-18T11:12:15.553] [DEBUG] startup - db is connected
+[2023-01-18T11:12:21.256] [DEBUG] startup - db is connected
+[2023-01-18T11:12:48.562] [DEBUG] startup - db is connected
+[2023-01-18T11:15:51.483] [DEBUG] startup - db is connected
+[2023-01-18T11:15:54.491] [DEBUG] startup - db is connected
+[2023-01-18T11:17:48.343] [DEBUG] startup - db is connected
+[2023-01-18T11:19:09.354] [DEBUG] startup - db is connected
+[2023-01-18T11:19:17.687] [DEBUG] startup - db is connected
+[2023-01-18T11:19:23.857] [DEBUG] startup - db is connected
+[2023-01-18T11:19:25.074] [DEBUG] startup - db is connected
+[2023-01-18T11:19:39.494] [DEBUG] startup - db is connected
+[2023-01-18T11:19:42.601] [DEBUG] startup - db is connected
+[2023-01-18T11:19:52.930] [DEBUG] startup - db is connected
+[2023-01-18T11:20:05.919] [DEBUG] startup - db is connected
+[2023-01-18T11:20:43.943] [DEBUG] startup - db is connected
+[2023-01-18T11:20:56.573] [DEBUG] startup - db is connected
+[2023-01-18T11:20:57.736] [DEBUG] startup - db is connected
+[2023-01-18T11:21:18.013] [DEBUG] startup - db is connected
+[2023-01-18T11:21:20.274] [DEBUG] startup - db is connected
+[2023-01-18T11:21:25.508] [DEBUG] startup - db is connected
+[2023-01-18T11:21:42.536] [DEBUG] startup - db is connected
+[2023-01-18T11:21:44.658] [DEBUG] startup - db is connected
+[2023-01-18T11:21:53.104] [DEBUG] startup - db is connected
+[2023-01-18T11:21:54.476] [DEBUG] startup - db is connected
+[2023-01-18T11:22:03.558] [DEBUG] startup - db is connected
+[2023-01-18T11:22:06.139] [DEBUG] startup - db is connected
+[2023-01-18T11:22:07.833] [DEBUG] startup - db is connected
+[2023-01-18T11:22:18.331] [DEBUG] startup - db is connected
+[2023-01-18T11:26:20.169] [DEBUG] startup - db is connected
+[2023-01-18T11:26:20.841] [DEBUG] startup - db is connected
+[2023-01-18T11:35:12.716] [DEBUG] startup - db is connected
+[2023-01-18T11:37:59.682] [DEBUG] startup - db is connected
+[2023-01-18T11:38:20.467] [DEBUG] startup - db is connected
+[2023-01-18T11:38:21.591] [DEBUG] startup - db is connected
+[2023-01-18T11:40:31.529] [DEBUG] startup - db is connected
+[2023-01-18T11:40:34.767] [DEBUG] startup - db is connected
+[2023-01-18T11:42:15.654] [DEBUG] startup - db is connected
+[2023-01-18T11:42:26.510] [DEBUG] startup - db is connected
+[2023-01-18T11:42:27.931] [DEBUG] startup - db is connected
+[2023-01-18T11:42:35.375] [DEBUG] startup - db is connected
+[2023-01-18T11:42:37.592] [DEBUG] startup - db is connected
+[2023-01-18T11:42:39.066] [DEBUG] startup - db is connected
+[2023-01-18T11:43:07.004] [DEBUG] startup - db is connected
+[2023-01-18T11:43:12.236] [DEBUG] startup - db is connected
+[2023-01-18T11:43:20.510] [DEBUG] startup - db is connected
+[2023-01-18T11:43:21.897] [DEBUG] startup - db is connected
+[2023-01-18T11:43:43.970] [DEBUG] startup - db is connected
+[2023-01-18T11:43:46.598] [DEBUG] startup - db is connected
+[2023-01-18T11:43:53.044] [DEBUG] startup - db is connected
+[2023-01-18T11:43:54.582] [DEBUG] startup - db is connected
+[2023-01-18T11:44:02.352] [DEBUG] startup - db is connected
+[2023-01-18T11:44:03.776] [DEBUG] startup - db is connected
+[2023-01-18T11:44:16.520] [DEBUG] startup - db is connected
+[2023-01-18T11:44:25.695] [DEBUG] startup - db is connected
+[2023-01-18T11:44:28.600] [DEBUG] startup - db is connected
+[2023-01-18T11:44:31.615] [DEBUG] startup - db is connected
+[2023-01-18T11:44:34.068] [DEBUG] startup - db is connected
+[2023-01-18T11:44:39.147] [DEBUG] startup - db is connected
+[2023-01-18T11:44:49.429] [DEBUG] startup - db is connected
+[2023-01-18T11:44:53.420] [DEBUG] startup - db is connected
+[2023-01-18T11:44:56.820] [DEBUG] startup - db is connected
+[2023-01-18T11:48:03.915] [DEBUG] startup - db is connected
+[2023-01-18T11:48:50.672] [DEBUG] startup - db is connected
+[2023-01-18T11:48:52.215] [DEBUG] startup - db is connected
+[2023-01-18T11:48:59.344] [DEBUG] startup - db is connected
+[2023-01-18T11:49:00.236] [DEBUG] startup - db is connected
+[2023-01-18T11:54:56.017] [DEBUG] startup - db is connected
+[2023-01-18T11:55:00.733] [DEBUG] startup - db is connected
+[2023-01-18T11:55:05.502] [DEBUG] startup - db is connected
+[2023-01-18T11:55:08.320] [DEBUG] startup - db is connected
+[2023-01-18T11:55:20.745] [DEBUG] startup - db is connected
+[2023-01-18T11:55:24.856] [DEBUG] startup - db is connected
+[2023-01-18T11:55:27.384] [DEBUG] startup - db is connected
+[2023-01-18T11:55:28.791] [DEBUG] startup - db is connected
+[2023-01-18T11:55:30.109] [DEBUG] startup - db is connected
+[2023-01-18T11:55:35.291] [DEBUG] startup - db is connected
+[2023-01-18T11:55:38.249] [DEBUG] startup - db is connected
+[2023-01-18T11:55:39.566] [DEBUG] startup - db is connected
+[2023-01-18T11:55:43.116] [DEBUG] startup - db is connected
+[2023-01-18T11:55:47.949] [DEBUG] startup - db is connected
+[2023-01-18T11:56:04.045] [DEBUG] startup - db is connected
+[2023-01-18T11:59:17.880] [DEBUG] startup - db is connected
+[2023-01-18T11:59:21.114] [DEBUG] startup - db is connected
+[2023-01-18T12:01:11.890] [DEBUG] startup - db is connected
+[2023-01-18T12:01:15.615] [DEBUG] startup - db is connected
+[2023-01-18T12:01:16.958] [DEBUG] startup - db is connected
+[2023-01-18T12:01:43.673] [DEBUG] startup - db is connected
+[2023-01-18T12:01:55.155] [DEBUG] startup - db is connected
+[2023-01-18T12:01:56.384] [DEBUG] startup - db is connected
+[2023-01-18T12:02:26.346] [DEBUG] startup - db is connected
+[2023-01-18T12:04:50.825] [DEBUG] startup - db is connected
+[2023-01-18T12:04:56.631] [DEBUG] startup - db is connected
+[2023-01-18T12:04:57.832] [DEBUG] startup - db is connected
+[2023-01-18T12:05:01.026] [DEBUG] startup - db is connected
+[2023-01-18T12:05:02.236] [DEBUG] startup - db is connected
+[2023-01-18T12:05:55.292] [DEBUG] startup - db is connected
+[2023-01-18T12:05:58.420] [DEBUG] startup - db is connected
+[2023-01-18T12:11:15.850] [INFO] startup - this is a test from v2.0!? +14383009922
+[2023-01-18T12:11:15.850] [INFO] startup - Reply {
+  reference: '763270',
+  messageContext: '',
+  from: { number: '+14383009922', name: '' },
+  to: { number: '0014383009922' },
+  message: {
+    text: 'this is a test from v2.0!?',
+    media: { mediaUri: '', contentType: '', title: '' },
+    custom: {},
+    error: ''
+  },
+  groupings: [ '', '', '' ],
+  time: '2023-01-18 07:26:57',
+  timeUtc: '2023-01-18T06:26:57',
+  channel: 'Sms'
+}
+[2023-01-18T12:11:31.650] [DEBUG] startup - db is connected
+[2023-01-18T12:11:48.228] [DEBUG] startup - db is connected
+[2023-01-18T12:11:54.256] [INFO] startup - this is a test from v2.0!? +14383009922
+[2023-01-18T12:11:54.256] [INFO] startup - Reply {
+  reference: '763270',
+  messageContext: '',
+  from: { number: '+14383009922', name: '' },
+  to: { number: '0014383009922' },
+  message: {
+    text: 'this is a test from v2.0!?',
+    media: { mediaUri: '', contentType: '', title: '' },
+    custom: {},
+    error: ''
+  },
+  groupings: [ '', '', '' ],
+  time: '2023-01-18 07:26:57',
+  timeUtc: '2023-01-18T06:26:57',
+  channel: 'Sms'
+}
+[2023-01-18T12:17:31.305] [DEBUG] startup - db is connected
+[2023-01-18T12:17:40.513] [DEBUG] startup - db is connected
+[2023-01-18T12:17:43.430] [DEBUG] startup - db is connected
+[2023-01-18T12:17:49.325] [DEBUG] startup - db is connected
+[2023-01-18T12:17:52.602] [DEBUG] startup - db is connected
+[2023-01-18T12:18:04.761] [DEBUG] startup - db is connected
+[2023-01-18T12:18:19.734] [DEBUG] startup - db is connected
+[2023-01-18T12:18:25.582] [DEBUG] startup - db is connected
+[2023-01-18T12:20:11.802] [DEBUG] startup - db is connected
+[2023-01-18T12:20:14.360] [DEBUG] startup - db is connected
+[2023-01-18T12:20:17.990] [DEBUG] startup - db is connected
+[2023-01-18T12:23:00.231] [DEBUG] startup - db is connected
+[2023-01-18T12:23:02.064] [DEBUG] startup - db is connected
+[2023-01-18T12:25:00.490] [DEBUG] startup - db is connected
+[2023-01-18T12:25:05.495] [DEBUG] startup - db is connected
+[2023-01-18T14:22:51.682] [DEBUG] startup - db is connected
+[2023-01-18T14:22:52.544] [DEBUG] startup - db is connected
+[2023-01-18T14:22:54.820] [DEBUG] startup - db is connected
+[2023-01-18T14:22:58.217] [DEBUG] startup - db is connected
+[2023-01-18T14:23:05.001] [DEBUG] startup - db is connected
+[2023-01-18T14:23:06.099] [DEBUG] startup - db is connected
+[2023-01-18T14:23:09.837] [DEBUG] startup - db is connected
+[2023-01-18T14:23:11.224] [DEBUG] startup - db is connected
+[2023-01-18T14:23:13.240] [DEBUG] startup - db is connected
+[2023-01-18T14:23:15.722] [DEBUG] startup - db is connected
+[2023-01-18T15:31:34.658] [DEBUG] startup - db is connected
+[2023-01-18T15:31:43.304] [DEBUG] startup - db is connected
+[2023-01-18T15:50:31.476] [DEBUG] startup - db is connected
+[2023-01-18T15:50:33.637] [DEBUG] startup - db is connected
+[2023-01-18T15:50:37.241] [DEBUG] startup - db is connected
+[2023-01-18T15:50:45.458] [DEBUG] startup - db is connected
+[2023-01-18T15:51:37.900] [DEBUG] startup - db is connected
+[2023-01-18T15:52:43.770] [DEBUG] startup - db is connected
+[2023-01-18T15:52:57.223] [DEBUG] startup - db is connected
+[2023-01-18T15:53:05.962] [DEBUG] startup - db is connected
+[2023-01-18T15:53:08.500] [DEBUG] startup - db is connected
+[2023-01-18T15:53:22.154] [DEBUG] startup - db is connected
+[2023-01-18T15:54:44.643] [DEBUG] startup - db is connected
+[2023-01-18T15:56:15.504] [DEBUG] startup - db is connected
+[2023-01-18T15:56:22.326] [DEBUG] startup - db is connected
+[2023-01-18T15:56:26.433] [DEBUG] startup - db is connected
+[2023-01-18T15:56:32.658] [DEBUG] startup - db is connected
+[2023-01-18T15:56:35.816] [DEBUG] startup - db is connected
+[2023-01-18T15:56:37.548] [DEBUG] startup - db is connected
+[2023-01-18T15:56:42.477] [DEBUG] startup - db is connected
+[2023-01-18T15:56:47.624] [DEBUG] startup - db is connected
+[2023-01-18T15:56:51.644] [DEBUG] startup - db is connected
+[2023-01-18T15:56:52.878] [DEBUG] startup - db is connected
+[2023-01-18T15:56:56.687] [DEBUG] startup - db is connected
+[2023-01-18T15:57:04.600] [DEBUG] startup - db is connected
+[2023-01-18T15:57:16.718] [DEBUG] startup - db is connected
+[2023-01-18T15:57:19.984] [DEBUG] startup - db is connected
+[2023-01-18T15:57:26.101] [DEBUG] startup - db is connected
+[2023-01-18T15:57:26.966] [DEBUG] startup - db is connected
+[2023-01-18T15:57:32.817] [DEBUG] startup - db is connected
+[2023-01-18T15:57:50.247] [DEBUG] startup - db is connected
+[2023-01-18T15:57:53.924] [DEBUG] startup - db is connected
+[2023-01-18T15:57:56.771] [DEBUG] startup - db is connected
+[2023-01-18T15:57:59.601] [DEBUG] startup - db is connected
+[2023-01-18T15:58:05.291] [DEBUG] startup - db is connected
+[2023-01-18T15:58:07.085] [DEBUG] startup - db is connected
+[2023-01-18T15:58:09.237] [DEBUG] startup - db is connected
+[2023-01-18T15:58:24.675] [INFO] startup - []
+[2023-01-18T15:58:40.792] [DEBUG] startup - db is connected
+[2023-01-18T15:58:43.196] [INFO] startup - []
+[2023-01-18T15:59:38.911] [DEBUG] startup - db is connected
+[2023-01-18T15:59:54.303] [DEBUG] startup - db is connected
+[2023-01-18T15:59:56.666] [DEBUG] startup - db is connected
+[2023-01-18T15:59:59.248] [DEBUG] startup - db is connected
+[2023-01-18T16:03:07.751] [DEBUG] startup - db is connected
+[2023-01-18T16:03:17.518] [DEBUG] startup - db is connected
+[2023-01-18T16:03:22.451] [DEBUG] startup - db is connected
+[2023-01-18T16:03:33.332] [DEBUG] startup - db is connected
+[2023-01-18T16:03:41.202] [DEBUG] startup - db is connected
+[2023-01-18T16:03:49.161] [DEBUG] startup - db is connected
+[2023-01-18T16:04:01.516] [DEBUG] startup - db is connected
+[2023-01-18T16:04:15.037] [INFO] startup - [
+  RowDataPacket {
+    leadNumberId: 8,
+    leadId: '60',
+    LeadNumber: '917012519575',
+    userId: 1
+  },
+  RowDataPacket {
+    leadNumberId: 9,
+    leadId: '60',
+    LeadNumber: '14383009922',
+    userId: 1
+  }
+]
+[2023-01-18T16:04:29.253] [DEBUG] startup - db is connected
+[2023-01-18T16:04:58.016] [INFO] startup - [
+  RowDataPacket {
+    leadNumberId: 8,
+    leadId: '60',
+    LeadNumber: '917012519575',
+    userId: 1
+  },
+  RowDataPacket {
+    leadNumberId: 9,
+    leadId: '60',
+    LeadNumber: '14383009922',
+    userId: 1
+  }
+]

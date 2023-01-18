@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="row mt-2">
+  <div class="col-12 col-lg-12">
+    <div class="table-responsive">
+      <table class="table" id="activeTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Lead Name</th>
+            <th>Created On</th>
+            <th>Lead Count</th>
+            <th>Broadcasted On</th>
+            <th>Delivered</th>
+            <th>Not Delivered</th>
+            <th></th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let data of data">
+            <td></td>
+            <td>{{data.leadname}}</td>
+            <td>{{data.dateofcreation}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button class="btn btn-sm"  (click)="broadCast()">Broadcast</button></td>
+            <!-- <td>{{ data.password }}</td> -->
+
+            <td>
+              <button type="button" class="btn btn-sm">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button class="btn btn-sm">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

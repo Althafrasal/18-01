@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row p-4">
+    <div class="col-12 col-lg-4 mt-5">
+    </div>
+    <div class="col-12 col-lg-4" style="margin-top: 150px">
+      <form [formGroup]="loginForm" #f="ngForm">
+        <div class="form-outline mb-4">
+
+
+          <input type="email" class="form-control" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"
+            formControlName="username" placeholder="E-MAIL" />
+        </div>
+
+        <div class="form-outline mb-4">
+
+          <input type="password" class="form-control" placeholder="PASSWORD"
+            style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px" formControlName="password" />
+        </div>
+
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center"></div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-dark" (click)="login()">LogIn</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-lg-4"></div>
+
+  </div>
+</div>
