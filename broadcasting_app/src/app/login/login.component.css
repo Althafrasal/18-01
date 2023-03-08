@@ -1,0 +1,9 @@
+input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}
+.background{
+  height: 745px;
+  background: linear-gradient(105deg, white 60%, #284455 60%);
+  background-repeat: no-repeat;
+
+}

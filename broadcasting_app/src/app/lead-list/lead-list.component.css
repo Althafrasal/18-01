@@ -1,0 +1,18 @@
+th {
+  background-color: #628196;
+  color: #284455;
+text-align: center;
+}
+td{
+  text-align: center;
+}
+
+#activeTable tr:nth-child(odd) {
+  color: white;
+  background-color: #3E6074;
+}
+
+#activeTable tr:nth-child(even) {
+  color: white;
+  background-color: #284455;
+}

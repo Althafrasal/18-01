@@ -1,27 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" >Message Broadcaster</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-      <form class="d-flex"></form>
-    </div>
-  </div>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Leads List</a>
-    <button class="btn btn-sm" (click)="openAddNewLead()"><i class="fa-solid fa-plus"></i></button>
-    <button class="btn btn-sm">
-      <i class="fa-solid fa-trash"></i>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #284455;">
+   <div class="container-fluid">
+    <a class="navbar-brand" style="color: white;"><img src="/assets/xlogix-logo.png" style="height: 40px;"> Message Broadcaster</a>
+    <button class="navbar-toggler" style="background-color: white;"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-      <form class="d-flex">
-        <button class="btn btn-primary btn-sm me-1" (click)="chat()">chat</button>
-        <button class="btn btn-danger btn-sm" (click)="logout()">logOut</button>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item" *ngIf="superAdmin">
+          <select  class="mt-2" name="" id="" >
+            <option  value="">tenant  <img src="/assets/dropdownIcon.png" style="height:30px ;" alt="">  </option>
+          </select>
+        </li> -->
+        <li class="nav-item">
+
+          <ul class="nav nav-tabs" *ngIf ="agent">
+            <li class="nav-items" >
+            <a class="nav-link"  [routerLink]="['/leadlist']"
+            [routerLinkActive]="'active'"> BROADCAST   </a>
+            </li>
+            <li class="nav-items">
+              <a class="nav-link"  [routerLink]="['/chat']"
+              [routerLinkActive]="'active'">SMS </a>
+            </li>
+           </ul>
+        </li>
+
+        <li class="nav-item">
+          <p class="mt-2 ms-2" style="color: white;">{{username}}</p>
+
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+
+        <button class="btn btn-outline-light ms-2" type="submit" (click)="logout()">Logout</button>
       </form>
     </div>
   </div>
 </nav>
+<!-- <h5 *ngIf="superAdmin" >TENANT MANAGEMENT</h5> -->

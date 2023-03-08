@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row" style="height: 40px;background-color: #284455;">
+    <div class="col">
+      <p style="color: white" class="mt-2">EDIT LEAD</p>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-dark btn-sm mt-1" mat-button mat-dialog-close style="color:white ;">
+        X
+      </button>
+    </div>
+  </div>
+
+  <div class="row ">
+    <form action="" [formGroup]="editLeadForm" #f="ngForm">
+      <div >
+        <label for="">Lead Name</label>
+        <input type="text" class="form-control" placeholder="Enter a name for the list" formControlName="leadName"  required/>
+        <div style="height: 20px;">
+          <p *ngIf="
+          editLeadForm.controls['leadName'].invalid &&
+          (editLeadForm.controls['leadName'].dirty ||
+          editLeadForm.controls['leadName'].touched)
+        " style="color: red">
+        please enter valid leadname
+      </p>
+        </div>
+
+      </div>
+
+      <div class="mt-2">
+        <label for="">Message To Broadcast</label>
+        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="SMS text message"
+          formControlName="message" required></textarea>
+          <div style="height: 20px">
+            <p *ngIf="
+            editLeadForm.controls['message'].invalid &&
+            (editLeadForm.controls['message'].dirty ||
+            editLeadForm.controls['message'].touched)
+          " style="color: red">
+          please enter a Message
+        </p>
+          </div>
+
+      </div>
+
+      <div class="mt-2">
+        <label for="">Upload</label>
+        <input type="file" class="form-control" (change)="readExcel($event)" required />
+
+      </div>
+
+      <div class="text-end mt-3">
+        <button class="btn" (click)="updateLead()" [disabled]="!f.valid" style="background-color: #284455;color: white;">Update</button>
+      </div>
+    </form>
+  </div>
+
+  <div></div>
+</div>

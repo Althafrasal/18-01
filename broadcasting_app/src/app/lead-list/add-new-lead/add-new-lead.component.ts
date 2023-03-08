@@ -17,13 +17,15 @@ export class AddNewLeadComponent implements OnInit {
     this.addLeadForm = this.fb.group({
       leadName: [''],
       message: [''],
-      userid: ['']
+      userid: [''],
+      tenantid : ['']
     })
 
   }
   ngOnInit(): void {
     this.userid = localStorage.getItem('userid')
-
+    this.tenantid = localStorage.getItem('tenantID')
+    this.adminid = localStorage.getItem('adminid')
   }
 
 
@@ -32,6 +34,8 @@ export class AddNewLeadComponent implements OnInit {
   ExcelData: any = []
   resData: any = []
   userid: any
+  tenantid: any
+  adminid : any
   popUpData = `The new lead updated successfully`
 
   readExcel(event: any) {
@@ -44,43 +48,48 @@ export class AddNewLeadComponent implements OnInit {
       var workbook = XLSX.read(fileReader.result, { type: 'binary' })
       var sheetNames = workbook.SheetNames
       this.ExcelData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]])
-
+      // console.log("hy",this.ExcelData);
     }
   }
 
   addLead() {
+    // console.log("add", this.tenantid, this.adminid);
+    this.addLeadForm.value.userid = this.userid
+    this.addLeadForm.value.tenantid = this.tenantid
+    this.addLeadForm.value.adminid = this.adminid
     const data = this.addLeadForm.value
     console.log(data);
-    this.addLeadForm.value.userid = this.userid
-
+    // console.log("hy add",this.ExcelData);
     this.auth.addLead(data).subscribe((res) => {
       if (res) {
         this.resData = res
+        // console.log(res);
+        // console.log("res",this.resData);
         const leadId = Object.values(this.resData.result)[2]
-
         let i = 0
-        for (this.ExcelData[i]; i <= this.ExcelData.length; i++) {
-          // console.log(this.ExcelData[i]);
-          const customerNum = this.ExcelData[i]
-          console.log(customerNum.number);
 
-          this.messageData = { leadId: leadId, userId: this.userid, leadNumber: customerNum.number}
+        this.auth.addLeadNumber(this.userid,leadId,{data : this.ExcelData}).subscribe((res) => {
+          console.log(res);
+        })
+        // console.log("excel",this.ExcelData);
 
-          this.auth.addLeadNumber(this.messageData).subscribe((res) => {
-            console.log(res);
-
-          })
-
-        }
+        // for (this.ExcelData[i]; i < this.ExcelData.length; i++) {
+        //   console.log(this.ExcelData[i]);
+        //   const customerNum = this.ExcelData[i]
+        //   this.messageData = { leadId: leadId, userId: this.userid, leadNumber: customerNum.numbers}
+        //   this.auth.addLeadNumber(leadId, this.userid,this.ExcelData).subscribe((res) => {
+        //     console.log(res);
+        //   })
+        // }
       }
       else {
         console.log('error');
-
       }
     })
-  }
-  import() {
+    this.popUp.closeAll()
     this.popUp.open(PopUPComponent, { height: '300px', width: '500px', data: { message: this.popUpData } })
+
+
   }
 
 }

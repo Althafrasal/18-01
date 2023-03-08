@@ -1,30 +1,97 @@
 <app-header></app-header>
-<!-- Sidebar -->
-<div class="row">
-  <div class="col-3" style="background-color: aquamarine;">
-    <div class="row mt-5">
-      <div class="col text-center" style="height: 70px; background-color: beige;">
-      <a >Althaf</a>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #628196">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: white;">SMS LIST</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <p>{{agentName}}</p> -->
+      </ul>
+      <ul class="nav justify-content-center">
+        <li class="nav-item me-2">
+          <h5 class="text-center" style="color: white;">{{ agentName | uppercase  }}</h5>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-dark btn-sm" (click)="back()" *ngIf="goBack" >Back to Agents </button>
+      </form>
     </div>
   </div>
-  <div class="col-9">
-    <div class="row" style="height: 48px; background-color: aqua"></div>
-    <div class="container col" style="height: 500px">
-<div class="col">
-  hy
-</div>
-<div class="col text-end">
-  hello
-</div>
+</nav>
+
+<!-- Sidebar -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3" style="background-color: #628196;">
+      <form [formGroup]="searchForm" #s="ngForm">
+        <div class="row">
+          <div class="col-lg-9 col-sm-12">
+             <input type="text" id="number" placeholder="search" class="form-control mt-1"
+            [(ngModel)]="searchFilter" #number formControlName="searchNumber"  required>
+          </div>
+          <div class="col-lg-3 col-sm-12">
+            <button class="btn btn-outline-light mt-1" (click)="clicked(number.value)" [disabled]="!s.valid">ADD</button>
+          </div>
+        </div>
+        <div class="text-center p-1" style="cursor: pointer;">
+          <div  style="height:500px; overflow: auto;">
+            <div class="numberList">
+              <div class="note"  *ngFor="let data of customerData|filter : searchFilter;" (click)="clicked(data.customernumber);unRead(data.customernumber)" id="{{data.customernumber}}">
+                <div  *ngIf="data.read_status == '0'" style="height:40px" >
+                  <p class="p-2" style="color: white;border-bottom: 1px solid;">{{data.customernumber }} <button class="btn btn-light btn-sm">new</button> </p>
+                </div>
+                <div *ngIf="data.read_status == '1'"  style="height:40px">
+                  <p class="p-2" style="color: white;border-bottom: 1px solid;">{{data.customernumber}} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
     </div>
-    <div class="row">
-      <div class="col-11">
-        <input type="text" class="form-control" name="" id="" cols="140" rows="1">
+    <div class="col-9">
+      <div class="row" style="height: 48px;background-color: #284455;">
+        <div class="col-6">
+          <div class="heading"> {{customerNumber}} </div>
+        </div>
+        <div class="col-6 text-end">
+          <button class="btn btn-light btn-sm mt-2 me-3" (click)="scrollToBottom()" *ngIf="chatSelected">Go To
+            Bottom</button>
+        </div>
       </div>
-      <div class="col-1">
-        <button class="btn"><i class="fa-solid fa-arrow-right"></i></button>
+
+      <div #scrollMe id="chatBox" class="row" style="height:500px; overflow: auto;background-color: #FFFBF5;">
+
+        <div *ngFor="let data of messages">
+          <div class="d-flex flex-row justify-content-start mb-1 ">
+            <div class="incoming-message" *ngIf="data.direction=='incoming'">
+              <p style="padding:5px;">{{data.message}}</p>
+              <p class="incomingDate">{{data.delivery_time | date : 'short' : 'UTC'}}</p>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-end mb-1">
+            <div class="outgoing-message" *ngIf="data.direction=='outgoing'">
+              <p style="padding:5px;">{{data.message}}</p>
+              <p class="outgoingDate">{{data.delivery_time | date : 'short' : 'UTC'}}</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <form [formGroup]="messageComposeForm" #f="ngForm" (ngSubmit)="sendMessage();save()">
+
+        <div class="row form-group " style="height: 60px;background-color:#628196;" >
+          <div class="col-10" *ngIf="chatSelected">
+            <input type="hidden" formControlName="agent_id">
+            <input type="hidden" formControlName="senderNumber" #senderNumber>
+            <input style="margin-top: 10px;" type="text" class="form-control" placeholder="Type your message here" formControlName="messageBox" required>
+          </div>
+          <div class="col-2" *ngIf="chatSelected">
+            <button class="btn btn-outline-light" style="margin-top: 10px;" [disabled]="!f.valid">send</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

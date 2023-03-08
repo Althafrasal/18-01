@@ -1,0 +1,42 @@
+.nav-tabs{
+  border: none;
+}
+
+.nav-tabs .nav-link{
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+}
+a.nav-link.active{
+  color: black;
+}
+a.nav-link{
+  color: white;
+}
+select{
+  border: none;
+  border-radius: 2px;
+}
+th {
+  background-color: #284455;
+  /* color: #284455; */
+  text-align: center;
+}
+td {
+ text-align: center;
+}
+
+tr:nth-child(odd) {
+  color: white;
+  background-color: #3E6074;
+}
+
+tr:nth-child(even) {
+  color: white;
+  background-color: #628196;
+}
+h4{
+    text-shadow: 3px 4px 7px rgba(0, 0, 0, 0.8);
+  }

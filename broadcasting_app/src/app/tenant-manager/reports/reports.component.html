@@ -1,0 +1,185 @@
+<app-header></app-header>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #628196">
+  <div class="container-fluid">
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <ul class="nav nav-tabs">
+          <li class="nav-items">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/report', id]">Reports</a>
+          </li>
+          <li class="nav-items" *ngIf="tenantList">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/admins', id]">Admins</a>
+          </li>
+          <li class="nav-items">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/agent', id]">Agents</a>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <h4 class="tenantName text-center" style="color: white;">{{ tenantName | uppercase }}</h4>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <ul class="nav nav-tabs">
+          <li class="nav-items" *ngIf="tenantList">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/tenantmanager']">Tenants List</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" style="background-color: rgb(245, 245, 245);margin-top: 10px;">
+  <div class="row" style="  background: linear-gradient(81.67deg, #0084f4 0%, #1a4da2 100%); height: 40px;">
+    <div class="col text-center pt-2"> <b style="color: white;">Report</b></div>
+  </div>
+  <form [formGroup]="getReportForm" >
+    <div class="row">
+      <div class="col mt-3 ms-3">
+        <label for="">From Date</label>
+        <span><input class="form-control text-center w-50"  type="date" formControlName="FromDate" [ngModel]="date"></span>
+      </div>
+      <div class="col mt-3 ms-3">
+        <label for="">To Date</label>
+        <span><input class="form-control text-center w-50"  type="date" formControlName="ToDate"  [ngModel]="date"></span>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <button class="btn btn-secondary m-4" (click)="report()">Report</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col text-center">
+        <div *ngIf="loading" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </form>
+  </div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div id="root">
+  <div class="container pt-4">
+    <div class="row align-items-stretch">
+      <div class="c-dashboardInfo col-lg-3 col-md-6">
+        <div class="wrap">
+          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Total Agents
+            <svg class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+              role="presentation"></svg>
+          </h4>
+          <span class="hind-font caption-12 c-dashboardInfo__count">{{totalAgents}}</span>
+        </div>
+      </div>
+      <div class="c-dashboardInfo col-lg-3 col-md-6">
+        <div class="wrap">
+          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Private Messages
+            <svg class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+              role="presentation"></svg>
+          </h4>
+          <span class="hind-font caption-12 c-dashboardInfo__count">{{totalMessages}}</span>
+        </div>
+      </div>
+      <div class="c-dashboardInfo col-lg-3 col-md-6">
+        <div class="wrap">
+          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Delivered Messages<svg
+              class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+
+            </svg></h4><span class="hind-font caption-12 c-dashboardInfo__count">{{deliveredMessages}}</span>
+        </div>
+      </div>
+      <div class="c-dashboardInfo col-lg-3 col-md-6">
+        <div class="wrap">
+          <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Not Delivered Messages<svg
+              class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+            </svg></h4><span class="hind-font caption-12 c-dashboardInfo__count">{{notDeliveredMessages}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="container">
+  <mat-slide-toggle class="mb-1"  color="primary" [checked]="false"  (click) ="toggle()"  style="color: white;">{{message}}</mat-slide-toggle>
+
+  <div class="row">
+    <div class="col">
+      <div class="row mt-2" style="  background: linear-gradient(81.67deg, #0084f4 0%, #1a4da2 100%); height: 40px;" *ngIf="messageReport" >
+        <div class="col-4" ></div>
+        <div class="col-4 text-center pt-2">  <b style="color: white;">Message Report</b> </div>
+        <div class="col-4 text-end">
+          <button class="btn btn-light btn-sm mt-1" (click)="exportMessageReport()" [disabled]="!exportButton">Export</button>
+        </div>
+      </div>
+      <div class="row mt-2" style="  background: linear-gradient(81.67deg, #0084f4 0%, #1a4da2 100%); height: 40px;" *ngIf="broadCastReport" >
+        <div class="col-4" ></div>
+        <div class="col-4 text-center pt-2">  <b style="color: white;">Broadcast Report</b> </div>
+        <div class="col-4 text-end">
+          <button class="btn btn-light btn-sm mt-1" (click)="exportBroadcastReport()" [disabled]="!exportButton" >Export</button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table" *ngIf="messageReport">
+          <thead>
+            <tr>
+              <th>Agent Name</th>
+              <th>Direct</th>
+              <th>Inbound</th>
+              <th>Outbound</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let data of messageReportData| paginate : pagingConfig;">
+              <td>{{data.username}}</td>
+              <td>{{data.totalMessage}}</td>
+              <td>{{data.Incoming}}</td>
+              <td>{{data.Outgoing}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table" *ngIf="broadCastReport">
+          <thead>
+            <tr>
+              <th>Agent Name</th>
+              <th>Lead Count</th>
+              <th>Broadcast count</th>
+              <th>Delivered</th>
+              <th>Not Delivered</th>
+              <th>Broadcast report</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let data of broadcastReportData| paginate : pagingConfig;">
+              <td>{{data.username}}</td>
+              <td>{{data.total_leads}}</td>
+              <td>{{data.total_broadcasts}}</td>
+              <td>{{data.total_delivered}}</td>
+              <td>{{data.total_undelivered}}</td>
+              <td><button class="btn" (click)="openReport(data.username)"><img src="/assets/report.png" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center" *ngIf="noData">
+          <p> <b>No data</b> </p>
+        </div>
+        <div class="text-end">
+          <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

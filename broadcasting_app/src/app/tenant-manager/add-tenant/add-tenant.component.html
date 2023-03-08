@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row" style="background-color: #284455; height: 40px">
+    <div class="col">
+      <h6 style="color: white" class="mt-2">ADD NEW TENANT</h6>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-sm mt-1" style="background-color:white; color:black" mat-button mat-dialog-close>
+        X
+      </button>
+    </div>
+  </div>
+
+  <form class="mx-1 mx-md-4" [formGroup]="addTenantForm" (ngSubmit)="addTenant()" #f="ngForm">
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="form-label">Tenant Name</label>
+        <input type="text" class="form-control" formControlName="tenantName" required />
+        <div style="height: 20px;">
+          <p *ngIf="
+          addTenantForm.controls['tenantName'].invalid &&
+          (addTenantForm.controls['tenantName'].dirty ||
+            addTenantForm.controls['tenantName'].touched)
+        " style="color: red">please enter Tenant Name</p>
+        </div>
+      </div>
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="form-label">Address</label>
+    <textarea name="" id=""  class="form-control" formControlName="defaultAddress" required></textarea>
+    <div style="height: 20px;">
+      <div>
+        <p *ngIf="
+      addTenantForm.controls['defaultAddress'].invalid &&
+      (addTenantForm.controls['defaultAddress'].dirty ||
+        addTenantForm.controls['defaultAddress'].touched)
+    " style="color: red">please enter Address</p>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="text-center">
+        <button class="btn mb-2" style="background-color: #284455; color: white" (submit)="addTenant()"
+          [disabled]="!f.valid">
+          save
+        </button>
+      </div>
+
+      <!-- </form> -->

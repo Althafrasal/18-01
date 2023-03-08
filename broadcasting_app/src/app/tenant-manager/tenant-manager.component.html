@@ -1,0 +1,45 @@
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row mt-2">
+    <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+      <form class="d-flex">
+        <input class="form-control me-2 w-25 mt-1" type="search" placeholder="Search" [(ngModel)]="searchFilter"
+        [ngModelOptions]="{ standalone: true }" />
+      </form>
+    </div>
+    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+      <div class="text-end">
+        <button class="btn btn-sm mt-1" type="button" style="background-color: #284455;color: white;" (click)="openAddNewTenant()">
+          <!-- margin-left: 650px; -->
+          ADD NEW TENANT
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12 col-lg-12">
+      <div class="table-responsive">
+        <table class="table" id="tableDefinition">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Tenant Name </th>
+              <th>Address </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor=" let data of data|filter : searchFilter">
+                <td>{{data.id}}</td>
+                <td>{{data.tenantName}}</td>
+                <td>{{data.address}}</td>
+                <!-- (click)="openAdmin(data.id)" -->
+                <td><button class="btn"><img style="height: 30px;" src="/assets/adminIcon.png" alt="" [routerLink]="['/report',data.id]"  ></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

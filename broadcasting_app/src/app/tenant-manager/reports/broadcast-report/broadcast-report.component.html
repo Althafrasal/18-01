@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row" style="background-color: #284455; height: 40px">
+    <div class="col">
+      <h5 style="color: white" class="mt-2">Broadcast report For {{agent}}</h5>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-sm mt-1" style="background-color: white; color: black" mat-button mat-dialog-close>
+        X
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mt-1" style="background-color: rgb(245, 245, 245);">
+      <div class="col">
+        <form [formGroup]="getReportForm" >
+        <div class="row">
+          <div class="col-6 mx-auto">
+            <label >From Date</label>
+           <input class="form-control  w-50" type="date" formControlName="FromDate" [ngModel]="date">
+          </div>
+          <div class="col-6 mx-auto">
+            <label >To Date</label>
+            <input class="form-control  w-50" type="date" formControlName="toDate" [ngModel]="date">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4 text-center">
+            <button class="btn btn-secondary btn-sm mb-2" (click)="report()" >Report</button>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-6">
+      <mat-slide-toggle class="mb-1"  color="primary" [checked]="false"  (click) ="toggle()" style="color: white;">{{message}}</mat-slide-toggle>
+    </div>
+    <div class="col-6 text-end">
+      <!-- <select class="form-select"  id="" name="" formControlName="dispatcher">
+        <option *ngFor="let data of data" value="{{ data.setid }}" >
+          {{ data.setid }}
+        </option>
+      </select> -->
+      <button class="btn btn-secondary btn-sm" (click)="exportNotDelivered()" *ngIf="NotDelivered">Export</button>
+      <button class="btn btn-secondary btn-sm" (click)="exportDelivered()" *ngIf="Delivered">Export</button>
+    </div>
+  </div>
+<div class="container">
+  <div class="table-responsive">
+  <table class="table" *ngIf="NotDelivered">
+    <thead>
+      <tr>
+        <th>Customer Number</th>
+        <th>Status</th>
+        <th>Lead Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let data of notDelivereData |paginate :pagingConfig;">
+        <td>{{data.customernumber}}</td>
+        <td>{{data.status}}</td>
+        <td>{{data.leadname}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table" *ngIf="Delivered">
+    <thead>
+      <tr>
+        <th>Customer Number</th>
+        <th>Status</th>
+        <th>Lead Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let data of deliveredData |paginate :pagingConfig;">
+        <td>{{data.customernumber}}</td>
+        <td>{{data.status}}</td>
+        <td>{{data.leadname}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-end">
+    <pagination-controls previousLabel ='' nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+  </div>
+  </div>
+</div>

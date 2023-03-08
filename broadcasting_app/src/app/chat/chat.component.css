@@ -1,33 +1,53 @@
-body {
-  background-color: #fbfbfb;
+html {
+  overflow: scroll;
+}
+
+/* ::-webkit-scrollbar {
+  direction:rtl;
+} */
+
+.heading {
+  padding: 10px;
+  font-size: large;
+  color: white;
 }
 
 
-
-/* Sidebar */
-.sidebar {
-  margin-top: 110px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 58px 0 0; /* Height of navbar */
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-  width: 240px;
-  z-index: 600;
-}
-
-
-.sidebar .active {
+.incoming-message {
+  background-color: #678983;
+  margin-top: 10px;
+  color: white;
+  width: 500px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;}
+
+.outgoing-message {
+  /* width: 500px; */
+  background-color: #3E6074;
+  /* text-align: end; */
+  margin-top: 10px;
+  color: white;
+  width: 500px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;}
+
+.numberList {
+ align-items: center;
+  text-align: center;
+  /* margin-bottom: 5px;
+  margin-left: 10px; */
+}
+.incomingDate{
+  text-align: end;
+   padding: 0px 6px 0px;
+   font-size: small;
+   margin-right: 5px;
+
+}
+.outgoingDate{
+  text-align: end;
+  padding: 0px 6px 0px;
+  font-size: small;
+  margin-right: 5px;
 }
 
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-}

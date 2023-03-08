@@ -1,0 +1,86 @@
+<!-- <div class="container">
+  <div class="row" style="background-color: #97a884; height: 40px">
+    <div class="col">
+      <h3 style="color: white" class="mt-2">EDIT ADMIN</h3>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-sm mt-1" style="background-color: #676e5e; color: white" mat-button mat-dialog-close>
+        X
+      </button>
+    </div>
+  </div>
+  <form action="" class="p-3" [formGroup]="editTenantAdminForm" #f="ngForm">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="">Admin Name</label>
+        <input type="text" class="form-control" formControlName="name" required>
+        <div style="height:20px ;">
+      <p *ngIf="
+      editTenantAdminForm.controls['name'].invalid &&
+      (editTenantAdminForm.controls['name'].dirty ||
+        editTenantAdminForm.controls['name'].touched)
+    " style="color: red">please enter Admin Name</p>
+    </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="">Email-ID</label>
+        <input type="text" class="form-control" formControlName="email" required>
+        <div style="height:20px ;">
+          <p *ngIf="
+          editTenantAdminForm.controls['email'].invalid &&
+          (editTenantAdminForm.controls['email'].dirty ||
+            editTenantAdminForm.controls['email'].touched)
+        " style="color: red">please enter Email-ID</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="">UserName</label>
+        <input type="text" class="form-control" formControlName="username" required>
+        <div style="height:20px ;">
+          <p *ngIf="
+          editTenantAdminForm.controls['username'].invalid &&
+          (editTenantAdminForm.controls['username'].dirty ||
+            editTenantAdminForm.controls['username'].touched)
+        " style="color: red">please enter Username</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="">PhoneNumber</label>
+        <input type="text" class="form-control" formControlName="phonenumber" required>
+        <div style="height:20px ;">
+          <p *ngIf="
+          editTenantAdminForm.controls['phonenumber'].invalid &&
+          (editTenantAdminForm.controls['phonenumber'].dirty ||
+            editTenantAdminForm.controls['phonenumber'].touched)
+        " style="color: red">please enter phonenumber</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt-2">
+
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="">Password</label>
+        <input type="text" class="form-control" formControlName="password" required>
+        <div style="height:20px ;">
+          <p *ngIf="
+          editTenantAdminForm.controls['password'].invalid &&
+          (editTenantAdminForm.controls['password'].dirty ||
+            editTenantAdminForm.controls['password'].touched)
+        " style="color: red">please enter password</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="text-end">
+        <button class="btn btn-sm" style="background-color: #676e5e; color: white" (click)="editAdmin()"
+          [disabled]="!f.valid">Save</button>
+      </div>
+    </div>
+  </form>
+</div> -->

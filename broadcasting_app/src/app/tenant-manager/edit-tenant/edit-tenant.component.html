@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="row" style="background-color: #97a884; height: 40px">
+    <div class="col">
+      <h3 style="color: white" class="mt-2">EDIT TENANT</h3>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-sm mt-1" style="background-color: #676e5e; color: white" mat-button mat-dialog-close>
+        X
+      </button>
+    </div>
+  </div>
+
+  <form class="mx-1 mx-md-4" [formGroup]="editTenantForm" (ngSubmit)="editTenant()" #f="ngForm">
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <label class="form-label">Tenant Name</label>
+        <input type="text" class="form-control" formControlName="tenantName" required />
+        <div style="height:20px ;" >
+          <p *ngIf="
+          editTenantForm.controls['tenantName'].invalid &&
+          (editTenantForm.controls['tenantName'].dirty ||
+            editTenantForm.controls['tenantName'].touched)
+        " style="color: red">please enter Tenant Name</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-3 col-lg-2">
+        <h4>Status</h4>
+        <label class="form-label">Active</label>
+        <mat-slide-toggle class="" color="primary" formControlName="status"></mat-slide-toggle>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label class="form-label">Tenant Email</label>
+        <input type="email" class="form-control" formControlName="email" required />
+        <div style="height:20px ;" >
+          <p  *ngIf="
+          editTenantForm.controls['email'].invalid &&
+          (editTenantForm.controls['email'].dirty ||
+            editTenantForm.controls['email'].touched)
+        " style="color: red">please enter valid E-mail</p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+        <label class="form-label">Number of Extensions</label>
+        <input type="text" class="form-control" formControlName="extensions" required />
+        <div style="height:20px ;">
+          <p  *ngIf="
+          editTenantForm.controls['extensions'].invalid &&
+          (editTenantForm.controls['extensions'].dirty ||
+            editTenantForm.controls['extensions'].touched)
+        " style="color: red">please enter valid Extension</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+        <label class="form-label">Dispatcher</label>
+        <select class="form-select" id="" name="" formControlName="dispatcher">
+          <option *ngFor="let data of data" value="{{ data.setid }}" >
+            {{ data.setid }}
+          </option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label class="form-label">Region</label>
+        <input type="email" class="form-control" formControlName="Region" required />
+        <div style="height:20px ;">
+          <p  *ngIf="
+          editTenantForm.controls['Region'].invalid &&
+          (editTenantForm.controls['Region'].dirty ||
+            editTenantForm.controls['Region'].touched)
+        " style="color: red">please enter valid Region</p>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group mt-2">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label class="form-label">Domain Name</label>
+        <input type="text" class="form-control" formControlName="domainName" required />
+        <div style="height:20px ;">
+          <div>
+            <p  *ngIf="
+            editTenantForm.controls['domainName'].invalid &&
+            (editTenantForm.controls['domainName'].dirty ||
+              editTenantForm.controls['domainName'].touched)
+          " style="color: red">please enter valid Domain Name</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label class="form-label">Server</label>
+        <input type="text" class="form-control" formControlName="server" required />
+        <div style="height:20px ;" >
+          <div>
+            <p *ngIf="
+            editTenantForm.controls['server'].invalid &&
+            (editTenantForm.controls['server'].dirty ||
+              editTenantForm.controls['server'].touched)
+          " style="color: red">please enter valid Server</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label class="form-label">Default Address</label>
+        <textarea name="" id="" cols="50" rows="4" class="form-control" formControlName="defaultAddress" required></textarea>
+        <div style="height:20px ;">
+          <div>
+            <p  *ngIf="
+            editTenantForm.controls['defaultAddress'].invalid &&
+            (editTenantForm.controls['defaultAddress'].dirty ||
+              editTenantForm.controls['defaultAddress'].touched)
+          " style="color: red">please enter Address</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label class="form-label">Billing Address</label>
+        <input type="checkbox" class="ms-5" id="checkBox" formControlName="checkbox" (change)="sameAsDefault($event)" />
+        <label for="">Same as Default Address</label>
+        <textarea name="" id="" cols="50" rows="4" class="form-control" formControlName="billingAddress" [readonly]="isReadOnly" required></textarea>
+        <div style="height:20px ;" >
+            <p *ngIf="
+            editTenantForm.controls['billingAddress'].invalid &&
+            (editTenantForm.controls['billingAddress'].dirty ||
+              editTenantForm.controls['billingAddress'].touched)
+          " style="color: red">please enter Address</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-end mt-3">
+      <button class="btn" style="background-color: #676e5e; color: white" (submit)="editTenant()" [disabled]="!f.valid">
+        save
+      </button>
+    </div>
+  </form>
+</div>

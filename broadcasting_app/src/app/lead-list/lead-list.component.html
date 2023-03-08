@@ -1,8 +1,50 @@
 <app-header></app-header>
-<div class="row mt-2">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #628196;">
+  <div class="container-fluid">
+    <a class="navbar-brand" ></a>
+      <mat-slide-toggle class="mb-1"  color="primary" [checked]="false"  (click) ="toggle()" style="color: white;">{{message}} </mat-slide-toggle>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <form class="d-flex">
+        <button class="btn btn-light btn-sm me-1" (click)="openAddNewLead()" >
+          ADD LEAD  </button>
+       <a class="btn btn-light btn-sm me-1" href="/assets/sampleTemplate.xlsx"  download> DOWNLOAD TEMPLATE</a>
+        <!-- <button class="btn btn-light btn-sm"  (click)="logout()" >LOGOUT</button> -->
+      </form>
+  </div>
+</nav>
+
+
+<div class="container-fluid row mt-2">
   <div class="col-12 col-lg-12">
     <div class="table-responsive">
-      <table class="table" id="activeTable">
+      <table class="table" id="activeTable" *ngIf=toBroadcast>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Lead Name</th>
+            <th>Created On</th>
+            <th>Lead Count</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let data of data|paginate :pagingConfig;">
+            <td></td>
+            <td>{{data.leadname}}</td>
+            <td>{{data.dateofcreation | date : 'short' : 'UTC'}}</td>
+            <td>{{data.leadCount}}</td>
+            <td>
+              <button class="btn btn-light btn-sm"   (click)="broadCast(data.leadId)" >Broadcast</button>
+              <button class="btn btn-light btn-sm ms-1" (click)="deleteLead(data.leadId)" >Delete</button>
+              <button class="btn btn-light btn-sm ms-1" (click)="editLead(data.leadId)" > Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-responsive">
+      <table class="table" id="activeTable" *ngIf=broadcasted>
         <thead>
           <tr>
             <th></th>
@@ -12,35 +54,28 @@
             <th>Broadcasted On</th>
             <th>Delivered</th>
             <th>Not Delivered</th>
-            <th></th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = "let data of data">
+          <tr *ngFor = "let data of broadcastData|paginate :pagingConfig;">
             <td></td>
             <td>{{data.leadname}}</td>
-            <td>{{data.dateofcreation}}</td>
+            <td>{{data.dateofcreation | date : 'short' : 'UTC'}}</td>
+            <td>{{data.leadCount}}</td>
+            <td>{{data.dateofbroadcasting | date : 'short' : 'UTC'}}</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="btn btn-sm"  (click)="broadCast()">Broadcast</button></td>
-            <!-- <td>{{ data.password }}</td> -->
-
-            <td>
-              <button type="button" class="btn btn-sm">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-              <button class="btn btn-sm">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </td>
+            <td><button class="btn btn-light btn-sm"  (click)="broadCast(data.leadsid)" [disabled]="broadcasted">Broadcast</button></td>
           </tr>
         </tbody>
       </table>
+      <div class="text-end">
+        <pagination-controls previousLabel ='' nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+      </div>
     </div>
   </div>
 </div>
+
 
 

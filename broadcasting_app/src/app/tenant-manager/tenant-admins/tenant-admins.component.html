@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row" style="background-color: #284455; height: 40px">
+    <div class="col">
+      <h5 style="color: white" class="mt-2">TENANT ADMINS</h5>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-sm mt-1" style="background-color: white; color: black" mat-button mat-dialog-close>
+        X
+      </button>
+    </div>
+  </div>
+  <div class="row">
+
+  </div>
+  <div class="row">
+    <form class="d-flex">
+      <div class="col">
+        <input class="form-control me-2 w-50 mt-1" type="search" placeholder="Search" [(ngModel)]="searchFilter"
+          [ngModelOptions]="{standalone: true}" />
+      </div>
+      <div class="col">
+        <div class="text-end">
+          <button class="btn mt-1" style="background-color: #284455; color: white" (click)="openAddNewAdmin()">ADD NEW ADMIN</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="row mt-1">
+    <div class="col-12 col-lg-12">
+      <div class="table-responsive">
+        <table class="table" id="tableDefinition">
+          <thead>
+            <tr>
+
+              <th (click)="sort('username')">Username </th>
+              <th>Password</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let data of data|filter : searchFilter|paginate :pagingConfig">
+
+              <td>{{data.username}}</td>
+              <td>{{data.password}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-end">
+          <pagination-controls previousLabel='' nextLabel=""
+            (pageChange)="onTableDataChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

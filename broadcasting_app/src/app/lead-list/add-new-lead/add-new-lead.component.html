@@ -1,34 +1,60 @@
 <div class="container">
-  <form action="" [formGroup]="addLeadForm">
-    <div class="row" style="height: 40px">
-      <div class="col">
-        <h3 style="color: white" class="mt-2">ADD NEW LEAD</h3>
+  <div class="row" style="height: 40px;background-color: #284455;">
+    <div class="col">
+      <p style="color: white" class="mt-2">ADD NEW LEAD</p>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-dark btn-sm mt-1" mat-button mat-dialog-close style="color:white ;">
+        X
+      </button>
+    </div>
+  </div>
+
+  <div class="row ">
+    <form action="" [formGroup]="addLeadForm" #f="ngForm">
+      <div >
+        <label for="">Lead Name</label>
+        <input type="text" class="form-control" placeholder="Enter a name for the list" formControlName="leadName"  required/>
+        <div style="height: 20px;">
+          <p *ngIf="
+          addLeadForm.controls['leadName'].invalid &&
+          (addLeadForm.controls['leadName'].dirty ||
+          addLeadForm.controls['leadName'].touched)
+        " style="color: red">
+        please enter valid leadname
+      </p>
+        </div>
+
       </div>
-      <div class="col text-end">
-        <button class="btn btn-sm mt-1" mat-button mat-dialog-close>X</button>
+
+      <div class="mt-2">
+        <label for="">Message To Broadcast</label>
+        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="SMS text message"
+          formControlName="message" required></textarea>
+          <div style="height: 20px">
+            <p *ngIf="
+            addLeadForm.controls['message'].invalid &&
+            (addLeadForm.controls['message'].dirty ||
+            addLeadForm.controls['message'].touched)
+          " style="color: red">
+          please enter a Message
+        </p>
+          </div>
+
       </div>
-    </div>
-    <div>
-      <label for="">Lead Name</label>
-      <input type="text" class="form-control" placeholder="Enter a name for the list" formControlName="leadName" />
-    </div>
 
-    <div class="mt-2">
-      <label for="">Message To Broadcast</label>
-      <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="SMS text message" formControlName="message"></textarea>
-    </div>
-
-    <div class="mt-2">
-      <label for="">Upload</label>
-      <input type="file" class="form-control" (change)="readExcel($event)" />
-    </div>
-
-    <div class="text-end mt-3">
-      <button class="btn" (click)="addLead()">Import</button>
-    </div>
-
-</form>
+      <div class="mt-2">
+        <label for="">Upload</label>
+        <input type="file" class="form-control" (change)="readExcel($event)" required />
 
 
+      </div>
 
-<div>
+      <div class="text-end mt-3">
+        <button class="btn" (click)="addLead()" [disabled]="!f.valid" style="background-color: #284455;color: white;">Import</button>
+      </div>
+    </form>
+  </div>
+
+  <div></div>
+</div>

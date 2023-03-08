@@ -1,0 +1,79 @@
+<app-header></app-header>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #628196">
+  <div class="container-fluid">
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <ul class="nav nav-tabs">
+          <li class="nav-items">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/report', id]">Reports</a>
+          </li>
+          <li class="nav-items" *ngIf = "tenantList">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/admins', id]">Admins</a>
+          </li>
+          <li class="nav-items">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/agent', id]">Agents</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <h4 class="text-center" style="color: white;">{{ tenantName | uppercase  }}</h4>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <ul class="nav nav-tabs">
+          <li class="nav-items" *ngIf = "tenantList">
+            <a class="nav-link" [routerLinkActive]="'active'" [routerLink]="['/tenantmanager']">Tenants List</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <form class="d-flex">
+      <div class="col">
+        <input class="form-control me-2 w-50 mt-1" type="search" placeholder="Search" [(ngModel)]="searchFilter"
+          [ngModelOptions]="{ standalone: true }" />
+      </div>
+      <div class="col">
+        <div class="text-end">
+          <button class="btn mt-1" style="background-color: #284455; color: white" (click)="openAddNewAgent()" *ngIf = "!tenantList" >ADD NEW AGENT</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row mt-1">
+    <div class="col-12 col-lg-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th (click)="sort('username')">Username</th>
+              <th>Password</th>
+             <th *ngIf ="tenantList"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor=" let data of data| filter : searchFilter | paginate : pagingConfig;">
+              <td>{{ data.userid }}</td>
+              <td>{{ data.username }}</td>
+              <td>{{ data.password }}</td>
+              <td *ngIf ="tenantList"><button class="btn" (click)="getchat(data.userid,data.username)" ><img src="/assets/view.png" style="height:20px;" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-end">
+          <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

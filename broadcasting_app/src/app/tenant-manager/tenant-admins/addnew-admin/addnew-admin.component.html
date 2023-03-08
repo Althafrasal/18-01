@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row" style="background-color: #284455; height: 40px">
+    <div class="col">
+      <h5 style="color: white" class="mt-2">ADD NEW ADMIN</h5>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-sm mt-1" style="background-color: white; color: black" mat-button mat-dialog-close>
+        X
+      </button>
+    </div>
+  </div>
+<form class="mx-1 mx-md-4 mt-3" [formGroup]="adminForm"  #f="ngForm">
+  <div class="row">
+    <label for="">Admin Name</label>
+    <input type="text" class="form-control" formControlName="username" required>
+    <div style="height: 20px;">
+      <p *ngIf="
+      adminForm.controls['username'].invalid &&
+      (adminForm.controls['username'].dirty ||
+      adminForm.controls['username'].touched)
+    " style="color: red">please enter Tenant Name</p>
+    </div>
+  </div>
+  <div class="row">
+    <label for="">password</label>
+    <input type="text" class="form-control" formControlName="password" required>
+    <div style="height: 20px;">
+      <p *ngIf="
+      adminForm.controls['password'].invalid &&
+      (adminForm.controls['password'].dirty ||
+      adminForm.controls['password'].touched)
+    " style="color: red">please enter Tenant Name</p>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn mt-4" style="background-color: #284455;color: white;" (click)="addAdmin()" [disabled]="!f.valid">save</button>
+
+  </div>
+</form>
+
+
+</div>
